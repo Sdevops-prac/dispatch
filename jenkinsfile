@@ -1,0 +1,19 @@
+pipeline{
+    agent {
+        node {
+            label 'Workstation'
+            }
+           }
+    stages {
+        stage ('Docker Build') {
+            steps {
+            sh 'docker build -t thanukus3/r-dispatch .'
+            }
+        }
+       stage ('Docker Push') {
+             steps {
+                sh 'docker push thanukus3/r-dispatch'
+             }
+        }
+   }
+  }
